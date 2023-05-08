@@ -84,6 +84,14 @@ function buySS() {
     }
 }
 
+function currentClickValue() {
+    clickValue += clickUpgrades[0].quantity*clickUpgrades[0].multiplier+1
+    clickValue += clickUpgrades[1].quantity*clickUpgrades[1].multiplier
+    console.log("current click value", clickValue)
+    document.getElementById('clickValue').innerText = clickValue
+    drawclickValue()
+}
+
 // update page functions
 function drawUserCheese() {
     document.getElementById("cheese").innerText = cheese
