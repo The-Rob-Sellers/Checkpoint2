@@ -41,6 +41,16 @@ function mine() {
     console.log("cheese", cheese)
     drawUserCheese()
 }
+// NOTE still need to fix formula!!!!!!!!!!!!!!!!!!!!!
+function collectAutoUpgrades() {
+    if(automaticUpgrades >= 0) {
+        clickValue += automaticUpgrades[0].quantity*automaticUpgrades[0].multiplier+1
+        clickValue += automaticUpgrades[1].quantity*automaticUpgrades[1].multiplier
+    }
+    console.log("clickValue", clickValue)
+    drawClickValue()
+}
+setInterval(collectAutoUpgrades, 3000)
 
 // buy functions
 function buyKnife() {
@@ -84,17 +94,14 @@ function buySS() {
     }
 }
 
-function currentClickValue() {
-    clickValue += clickUpgrades[0].quantity*clickUpgrades[0].multiplier+1
-    clickValue += clickUpgrades[1].quantity*clickUpgrades[1].multiplier
-    console.log("current click value", clickValue)
-    document.getElementById('clickValue').innerText = clickValue
-    drawclickValue()
-}
+
 
 // update page functions
 function drawUserCheese() {
     document.getElementById("cheese").innerText = cheese
+}
+function drawClickValue() {
+    document.getElementById("clickValue").innerText = clickValue
 }
 function drawButtonKnife() {
     document.getElementById("knife").innerText = knife
